@@ -134,7 +134,8 @@ export function BookingDialog({ open, onOpenChange, selectedBike }: BookingDialo
                     <Textarea 
                       placeholder="I'd like to rent this for 3 days starting..." 
                       className="bg-white/5 border-white/10 text-white focus:border-primary/50 min-h-[100px]" 
-                      {...field} 
+                      {...field}
+                      value={field.value ?? ""}
                     />
                   </FormControl>
                   <FormMessage />

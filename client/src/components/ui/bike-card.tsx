@@ -1,14 +1,14 @@
 import { Bike } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Gauge, Fuel } from "lucide-react";
+import { Gauge, Fuel, Phone } from "lucide-react";
+import { Link } from "wouter";
 
 interface BikeCardProps {
   bike: Bike;
-  onBook: (bike: Bike) => void;
 }
 
-export function BikeCard({ bike, onBook }: BikeCardProps) {
+export function BikeCard({ bike }: BikeCardProps) {
   return (
     <div className="group relative h-full glass-card rounded-2xl overflow-hidden flex flex-col">
       {/* Image Container */}
@@ -19,11 +19,6 @@ export function BikeCard({ bike, onBook }: BikeCardProps) {
           alt={bike.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <Badge 
-          className="absolute top-4 right-4 z-20 bg-primary text-black font-bold border-none"
-        >
-          ₹{bike.price}/day
-        </Badge>
         {/* Type Badge */}
         <Badge 
           variant="outline"
@@ -31,6 +26,13 @@ export function BikeCard({ bike, onBook }: BikeCardProps) {
         >
           {bike.type}
         </Badge>
+        {bike.available && (
+          <Badge 
+            className="absolute top-4 right-4 z-20 bg-green-500/80 text-white font-bold border-none"
+          >
+            Available
+          </Badge>
+        )}
       </div>
 
       {/* Content */}
@@ -43,7 +45,7 @@ export function BikeCard({ bike, onBook }: BikeCardProps) {
             {bike.description}
           </p>
 
-          {/* Specs Mini-Grid (Mocked for visual depth) */}
+          {/* Specs Mini-Grid */}
           <div className="grid grid-cols-2 gap-2 mb-6">
             <div className="flex items-center gap-2 text-xs text-zinc-500 bg-white/5 p-2 rounded">
               <Gauge className="w-3.5 h-3.5 text-primary" />
@@ -56,12 +58,15 @@ export function BikeCard({ bike, onBook }: BikeCardProps) {
           </div>
         </div>
 
-        <Button 
-          onClick={() => onBook(bike)}
-          className="w-full bg-white/10 hover:bg-primary hover:text-black text-white border border-white/10 transition-all duration-300 font-bold"
-        >
-          Book Now
-        </Button>
+        <Link href="/contact">
+          <Button 
+            className="w-full bg-white/10 hover:bg-primary hover:text-black text-white border border-white/10 transition-all duration-300 font-bold"
+            data-testid={`button-contact-bike-${bike.id}`}
+          >
+            <Phone className="w-4 h-4 mr-2" />
+            Contact Us to Book
+          </Button>
+        </Link>
       </div>
     </div>
   );

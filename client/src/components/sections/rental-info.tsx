@@ -1,4 +1,4 @@
-import { ShieldCheck, FileText, CreditCard, Clock } from "lucide-react";
+import { ShieldCheck, FileText, CreditCard, Clock, AlertTriangle, CheckCircle, Users, MapPin } from "lucide-react";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -23,26 +23,49 @@ export function RentalInfo() {
     });
   }, { scope: containerRef });
 
-  const items = [
+  const mainRequirements = [
     {
       icon: <FileText className="w-8 h-8 text-primary" />,
-      title: "Documents Required",
-      description: "Valid Driving License and Original Aadhaar Card / Voter ID are mandatory for verification."
+      title: "Valid Driving License",
+      description: "A valid Indian driving license with appropriate vehicle class endorsement is mandatory. The license must not be expired and should match the type of vehicle you wish to rent (LMV for bikes, MCWG for two-wheelers)."
     },
     {
       icon: <ShieldCheck className="w-8 h-8 text-primary" />,
+      title: "Aadhaar Card (Original)",
+      description: "Original Aadhaar Card is required for identity verification and will be kept as security during the rental period. A photocopy will be retained for our records. This is a government-mandated requirement."
+    },
+  ];
+
+  const additionalInfo = [
+    {
+      icon: <CreditCard className="w-8 h-8 text-primary" />,
       title: "Security Deposit",
-      description: "A refundable security deposit is required for all rentals. 100% refunded upon safe return."
+      description: "A refundable security deposit is required for all rentals. The amount varies based on the vehicle type. 100% refund upon safe return of the vehicle in original condition."
     },
     {
       icon: <Clock className="w-8 h-8 text-primary" />,
       title: "Rental Duration",
-      description: "Flexible rental periods available. Day starts from 9:00 AM. Late returns may incur extra charges."
+      description: "Flexible rental periods available - hourly, daily, or weekly. Rental day starts from 9:00 AM. Late returns beyond 1 hour may incur additional charges. Early returns are welcomed."
     },
     {
-      icon: <CreditCard className="w-8 h-8 text-primary" />,
-      title: "Easy Payment",
-      description: "We accept UPI, Cash, and major Credit/Debit cards. Pay securely at the counter."
+      icon: <AlertTriangle className="w-8 h-8 text-primary" />,
+      title: "Age Requirement",
+      description: "Minimum age for renting is 18 years with a valid license. For premium bikes like Royal Enfield Himalayan or KTM, the rider must be at least 21 years with 2+ years of riding experience."
+    },
+    {
+      icon: <CheckCircle className="w-8 h-8 text-primary" />,
+      title: "Fuel Policy",
+      description: "Vehicles are provided with a full tank of fuel. Please return the vehicle with a full tank. Fuel consumption during the rental is the responsibility of the renter."
+    },
+    {
+      icon: <Users className="w-8 h-8 text-primary" />,
+      title: "Pillion Rider",
+      description: "Helmets are provided for both rider and pillion. It is mandatory to wear helmets as per Indian traffic laws. Additional helmets can be arranged upon request."
+    },
+    {
+      icon: <MapPin className="w-8 h-8 text-primary" />,
+      title: "Area Restrictions",
+      description: "Vehicles can be used within Darjeeling district. For outstation trips to Sikkim, Nepal border areas, or other locations, prior permission and additional documentation may be required."
     }
   ];
 
@@ -56,24 +79,66 @@ export function RentalInfo() {
           <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-6">
             RENTAL <span className="text-primary">REQUIREMENTS</span>
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
-            We keep the paperwork simple so you can spend more time on the road.
+          <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
+            We keep the process simple and transparent. Please ensure you have the following documents ready for a smooth rental experience.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.map((item, index) => (
-            <div 
-              key={index} 
-              className="info-item glass-card p-8 rounded-2xl flex flex-col items-center text-center hover:bg-white/5 transition-colors"
-            >
-              <div className="mb-6 p-4 bg-primary/10 rounded-full border border-primary/20">
-                {item.icon}
+        {/* Main Requirements - Highlighted */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-display font-bold text-white mb-8 text-center">
+            <span className="text-primary">Mandatory</span> Documents
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {mainRequirements.map((item, index) => (
+              <div 
+                key={index} 
+                className="info-item glass-card p-8 rounded-2xl flex flex-col items-center text-center border-2 border-primary/30 bg-primary/5"
+              >
+                <div className="mb-6 p-4 bg-primary/20 rounded-full border border-primary/40">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold text-primary mb-3 font-display">{item.title}</h3>
+                <p className="text-zinc-300 text-sm leading-relaxed">{item.description}</p>
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 font-display">{item.title}</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">{item.description}</p>
+            ))}
+          </div>
+        </div>
+
+        {/* Additional Info */}
+        <div>
+          <h3 className="text-2xl font-display font-bold text-white mb-8 text-center">
+            Additional <span className="text-primary">Information</span>
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {additionalInfo.map((item, index) => (
+              <div 
+                key={index} 
+                className="info-item glass-card p-6 rounded-2xl flex flex-col items-center text-center hover:bg-white/5 transition-colors"
+              >
+                <div className="mb-4 p-3 bg-primary/10 rounded-full border border-primary/20">
+                  {item.icon}
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2 font-display">{item.title}</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Important Notice */}
+        <div className="mt-16 glass-card p-8 rounded-2xl border border-yellow-500/30 bg-yellow-500/5 max-w-3xl mx-auto">
+          <div className="flex items-start gap-4">
+            <AlertTriangle className="w-8 h-8 text-yellow-500 flex-shrink-0 mt-1" />
+            <div>
+              <h4 className="text-lg font-bold text-yellow-500 mb-2 font-display">Important Notice</h4>
+              <p className="text-zinc-300 text-sm leading-relaxed">
+                All documents are verified before vehicle handover. False or expired documents will result in cancellation of rental. 
+                The renter is responsible for all traffic violations and damages during the rental period. 
+                Please ride safely and follow all traffic rules. Helmets are mandatory as per law.
+              </p>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

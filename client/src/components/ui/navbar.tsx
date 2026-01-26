@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Bike, Menu, X } from "lucide-react";
+import { Bike, Menu } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -7,6 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [location] = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -16,17 +17,13 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Our Fleet", href: "#fleet" },
-    { name: "Rental Info", href: "#info" },
-    { name: "Contact", href: "#contact" },
+    { name: "Our Fleet", href: "/fleet" },
+    { name: "Rental Info", href: "/rental-info" },
+    { name: "Contact", href: "/contact" },
   ];
 
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    if (id.startsWith("#")) {
-      e.preventDefault();
-      const element = document.querySelector(id);
-      element?.scrollIntoView({ behavior: "smooth" });
-    }
+  const isActive = (href: string) => {
+    return location === href;
   };
 
   return (
@@ -48,46 +45,57 @@ export function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
               href={link.href}
-              onClick={(e) => handleScrollTo(e, link.href)}
-              className="text-sm font-medium text-white/80 hover:text-primary transition-colors uppercase tracking-wider"
+              className={`text-sm font-medium transition-colors uppercase tracking-wider ${
+                isActive(link.href) 
+                  ? "text-primary" 
+                  : "text-white/80 hover:text-primary"
+              }`}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
-          <Button 
-            className="bg-primary text-black hover:bg-primary/90 font-bold"
-            onClick={() => document.querySelector('#fleet')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            BOOK NOW
-          </Button>
+          <Link href="/contact">
+            <Button 
+              className="bg-primary text-black hover:bg-primary/90 font-bold"
+              data-testid="button-nav-contact"
+            >
+              CONTACT US
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Nav */}
         <div className="md:hidden">
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10" data-testid="button-mobile-menu">
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-zinc-950 border-white/10 pt-16">
               <div className="flex flex-col gap-6">
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.name}
                     href={link.href}
-                    onClick={(e) => handleScrollTo(e, link.href)}
-                    className="text-2xl font-display font-bold text-white hover:text-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                    className={`text-2xl font-display font-bold transition-colors ${
+                      isActive(link.href) 
+                        ? "text-primary" 
+                        : "text-white hover:text-primary"
+                    }`}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 ))}
-                <Button className="w-full bg-primary text-black font-bold mt-4">
-                  BOOK NOW
-                </Button>
+                <Link href="/contact" onClick={() => setIsOpen(false)}>
+                  <Button className="w-full bg-primary text-black font-bold mt-4">
+                    CONTACT US
+                  </Button>
+                </Link>
               </div>
             </SheetContent>
           </Sheet>

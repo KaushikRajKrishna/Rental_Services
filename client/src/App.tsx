@@ -7,6 +7,7 @@ import Home from "@/pages/home";
 import FleetPage from "@/pages/fleet";
 import RentalInfoPage from "@/pages/rental-info";
 import ContactPage from "@/pages/contact";
+import AboutPage from "@/pages/about";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/fleet" component={FleetPage} />
       <Route path="/rental-info" component={RentalInfoPage} />
       <Route path="/contact" component={ContactPage} />
+      <Route path="/about" component={AboutPage} />
       <Route component={NotFound} />
     </Switch>
   );

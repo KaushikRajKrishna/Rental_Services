@@ -3,11 +3,13 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import parallaxImage from "@/assets/images/darjeeling-parallax.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function RentalInfo() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const parallaxRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     gsap.from(".info-item", {
@@ -21,6 +23,20 @@ export function RentalInfo() {
       stagger: 0.15,
       ease: "power2.out",
     });
+
+    // Parallax effect for the image
+    if (parallaxRef.current) {
+      gsap.to(parallaxRef.current, {
+        yPercent: -20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: parallaxRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
   }, { scope: containerRef });
 
   const mainRequirements = [
@@ -82,6 +98,31 @@ export function RentalInfo() {
           <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
             We keep the process simple and transparent. Please ensure you have the following documents ready for a smooth rental experience.
           </p>
+        </div>
+
+        {/* Parallax Image Section */}
+        <div className="relative h-[300px] md:h-[400px] mb-16 rounded-2xl overflow-hidden">
+          <div 
+            ref={parallaxRef}
+            className="absolute inset-0 w-full h-[140%] -top-[20%]"
+          >
+            <img 
+              src={parallaxImage} 
+              alt="Beautiful Darjeeling mountain landscape with tea gardens" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center px-4">
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+                Explore the <span className="text-primary">Queen of Hills</span>
+              </h3>
+              <p className="text-white/80 max-w-xl mx-auto text-lg">
+                Ride through scenic mountain roads, lush tea gardens, and breathtaking viewpoints of the Himalayas
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Main Requirements - Highlighted */}

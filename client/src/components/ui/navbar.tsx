@@ -19,6 +19,7 @@ export function Navbar() {
     { name: "Home", href: "/" },
     { name: "Our Fleet", href: "/fleet" },
     { name: "Rental Info", href: "/rental-info" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
 

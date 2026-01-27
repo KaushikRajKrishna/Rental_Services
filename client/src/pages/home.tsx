@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/ui/navbar";
 import { Hero } from "@/components/sections/hero";
 import { Fleet } from "@/components/sections/fleet";
-import { RentalInfo } from "@/components/sections/rental-info";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/ui/footer";
 import { Button } from "@/components/ui/button";
@@ -38,7 +37,6 @@ export default function Home() {
           </div>
         </section>
         
-        <RentalInfo />
         <Contact />
       </main>
       <Footer />

@@ -39,7 +39,7 @@ export function Navbar() {
             <Bike className="w-6 h-6 text-black" />
           </div>
           <span className="text-xl md:text-2xl font-display font-bold text-white tracking-tighter">
-            SURAJ<span className="text-primary">BIKES</span>
+            Suraj <span className="text-primary">Bike and Scooty Rental Services</span>
           </span>
         </Link>
 
@@ -58,7 +58,7 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link href="/contact">
+          <Link href="/contact" className="ml-4">
             <Button 
               className="bg-primary text-black hover:bg-primary/90 font-bold"
               data-testid="button-nav-contact"

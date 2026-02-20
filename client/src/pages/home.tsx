@@ -2,6 +2,7 @@ import { Navbar } from "@/components/ui/navbar";
 import { Hero } from "@/components/sections/hero";
 import { Fleet } from "@/components/sections/fleet";
 import { Contact } from "@/components/sections/contact";
+import { Testimonials } from "@/components/sections/testimonials";
 import { Footer } from "@/components/ui/footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -38,6 +39,7 @@ export default function Home() {
         </section>
         
         <Contact />
+        <Testimonials />
       </main>
       <Footer />
     </div>

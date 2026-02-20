@@ -161,7 +161,7 @@ export function RentalInfo() {
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2 font-display">{item.title}</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">{item.description}</p>
+                <p className="text-zinc-300 text-sm leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>

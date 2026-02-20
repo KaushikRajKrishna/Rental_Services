@@ -11,7 +11,7 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <Bike className="w-6 h-6 text-primary" />
               <span className="text-xl font-display font-bold text-white">
-                SURAJ<span className="text-primary">BIKES</span>
+                Suraj <span className="text-primary">Bike and Scooty Rental Services</span>
               </span>
             </div>
             <p className="text-zinc-500 max-w-sm mb-6">
@@ -86,7 +86,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-600">
-          <p>Suraj Bike and Scooty Rental Darjeeling. All rights reserved.</p>
+          <p>Suraj Bike and Scooty Rental Services Darjeeling. All rights reserved.</p>
           <p>Near Pushpak Hotel, Chowrasta Mall Road, Darjeeling 734101</p>
         </div>
       </div>

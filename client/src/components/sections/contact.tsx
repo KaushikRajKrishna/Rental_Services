@@ -55,7 +55,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="mt-12">
+            {/* <div className="mt-12">
               <h4 className="text-white font-bold mb-4">Follow Our Journey</h4>
               <div className="flex gap-4">
                 <a href="#" className="p-3 bg-zinc-800 rounded-full text-white hover:bg-primary hover:text-black transition-colors">
@@ -65,7 +65,7 @@ export function Contact() {
                   <Facebook className="w-5 h-5" />
                 </a>
               </div>
-            </div>
+            </div> */}
             
             <div className="mt-8">
                <Button 
@@ -80,7 +80,8 @@ export function Contact() {
           {/* Map */}
           <div className="h-[400px] lg:h-auto w-full bg-zinc-800 relative">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3553.689676756209!2d88.2626!3d27.0396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e42e4a1a3a3a3a%3A0x1a1a1a1a1a1a1a1a!2sChowrasta%20Mall%20Road%2C%20Darjeeling!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+              // src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3553.689676756209!2d88.2626!3d27.0396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e42e4a1a3a3a3a%3A0x1a1a1a1a1a1a1a1a!2sChowrasta%20Mall%20Road%2C%20Darjeeling!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2669.851501195025!2d88.26626538229725!3d27.044524582534436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e42fb69c6b3465%3A0x4e1e4bd268f79dbf!2sBike%20and%20scooty%20rental%20darjeeling%20Numsang!5e0!3m2!1sen!2sin!4v1771573215199!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0, filter: "grayscale(1) contrast(1.2) opacity(0.8)" }}

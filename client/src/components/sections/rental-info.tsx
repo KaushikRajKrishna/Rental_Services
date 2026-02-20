@@ -1,43 +1,9 @@
 import { ShieldCheck, FileText, CreditCard, Clock, AlertTriangle, CheckCircle, Users, MapPin } from "lucide-react";
 import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import parallaxImage from "@/assets/images/darjeeling-parallax.jpg";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function RentalInfo() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const parallaxRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    gsap.from(".info-item", {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 75%",
-      },
-      y: 50,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.15,
-      ease: "power2.out",
-    });
-
-    // Parallax effect for the image
-    if (parallaxRef.current) {
-      gsap.to(parallaxRef.current, {
-        yPercent: -20,
-        ease: "none",
-        scrollTrigger: {
-          trigger: parallaxRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    }
-  }, { scope: containerRef });
 
   const mainRequirements = [
     {
@@ -103,8 +69,7 @@ export function RentalInfo() {
         {/* Parallax Image Section */}
         <div className="relative h-[300px] md:h-[400px] mb-16 rounded-2xl overflow-hidden">
           <div 
-            ref={parallaxRef}
-            className="absolute inset-0 w-full h-[140%] -top-[20%]"
+            className="absolute inset-0 w-full h-full"
           >
             <img 
               src={parallaxImage} 
@@ -134,7 +99,7 @@ export function RentalInfo() {
             {mainRequirements.map((item, index) => (
               <div 
                 key={index} 
-                className="info-item glass-card p-8 rounded-2xl flex flex-col items-center text-center border-2 border-primary/30 bg-primary/5"
+                className="glass-card p-8 rounded-2xl flex flex-col items-center text-center border-2 border-primary/30 bg-primary/5"
               >
                 <div className="mb-6 p-4 bg-primary/20 rounded-full border border-primary/40">
                   {item.icon}
@@ -155,7 +120,7 @@ export function RentalInfo() {
             {additionalInfo.map((item, index) => (
               <div 
                 key={index} 
-                className="info-item glass-card p-6 rounded-2xl flex flex-col items-center text-center hover:bg-white/5 transition-colors"
+                className="glass-card p-6 rounded-2xl flex flex-col items-center text-center hover:bg-white/5 transition-colors"
               >
                 <div className="mb-4 p-3 bg-primary/10 rounded-full border border-primary/20">
                   {item.icon}

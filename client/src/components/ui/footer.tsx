@@ -1,6 +1,15 @@
 import { Bike } from "lucide-react";
 import { Link } from "wouter";
-import { SiInstagram, SiFacebook, SiWhatsapp } from "react-icons/si";
+import { SiWhatsapp } from "react-icons/si";
+
+const JustDialLogo = () => (
+  <svg width="20" height="20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="48" stroke="currentColor" strokeWidth="4"/>
+    <text x="50" y="60" fontSize="40" fontWeight="bold" textAnchor="middle" fill="currentColor" fontFamily="Arial, sans-serif">
+      Jd
+    </text>
+  </svg>
+);
 
 export function Footer() {
   return (
@@ -38,22 +47,13 @@ export function Footer() {
             <h4 className="text-white font-bold mb-4 font-display">Connect With Us</h4>
             <div className="flex gap-4 mb-6">
               <a 
-                href="https://instagram.com" 
+                href="https://www.justdial.com/Darjeeling/Suraj-Scooty-and-Bike-Rental-Service-Near-Ara-Building-Dr-Zakir-Hussain-Road/9999PX354-X354-250618145349-C3U9_BZDET?auto=1&trkid=9991951863&term=suraj%20bike%20and%20scooty" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 bg-zinc-800 rounded-full text-white hover:bg-primary hover:text-black transition-colors"
-                data-testid="link-instagram"
+                data-testid="link-justdial"
               >
-                <SiInstagram className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 bg-zinc-800 rounded-full text-white hover:bg-primary hover:text-black transition-colors"
-                data-testid="link-facebook"
-              >
-                <SiFacebook className="w-5 h-5" />
+                <JustDialLogo />
               </a>
               <a 
                 href="https://wa.me/919064984225" 

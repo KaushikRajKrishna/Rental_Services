@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Yellow/Gold background -->
+  <rect width="64" height="64" rx="8" fill="#FFD700"/>
+  
+  <!-- Bike icon (simplified) -->
+  <g transform="translate(16, 16)">
+    <!-- Bike frame outline -->
+    <circle cx="8" cy="20" r="6" stroke="#000000" stroke-width="2" fill="none"/>
+    <circle cx="28" cy="20" r="6" stroke="#000000" stroke-width="2" fill="none"/>
+    <path d="M 14 20 L 22 20" stroke="#000000" stroke-width="2"/>
+    <path d="M 18 20 L 18 8" stroke="#000000" stroke-width="2"/>
+    <path d="M 18 8 L 14 20" stroke="#000000" stroke-width="2"/>
+    <path d="M 18 8 L 22 20" stroke="#000000" stroke-width="2"/>
+    <!-- Seat -->
+    <ellipse cx="18" cy="6" rx="3" ry="2" fill="#000000"/>
+    <!-- Handlebars -->
+    <path d="M 18 10 L 14 8 M 18 10 L 22 8" stroke="#000000" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+</svg>

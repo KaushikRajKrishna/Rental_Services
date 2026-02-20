@@ -147,7 +147,7 @@ export function RentalInfo() {
         </div>
 
         {/* Additional Info */}
-        <div>
+        <div className="mb-0">
           <h3 className="text-2xl font-display font-bold text-white mb-8 text-center">
             Additional <span className="text-primary">Information</span>
           </h3>

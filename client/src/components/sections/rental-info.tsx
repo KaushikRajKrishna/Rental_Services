@@ -168,7 +168,7 @@ export function RentalInfo() {
         </div>
 
         {/* Important Notice */}
-        <div className="mt-16 glass-card p-8 rounded-2xl border border-yellow-500/30 bg-yellow-500/5 max-w-3xl mx-auto">
+        <div className="mt-8 glass-card p-8 rounded-2xl border border-yellow-500/30 bg-yellow-500/5 max-w-3xl mx-auto">
           <div className="flex items-start gap-4">
             <AlertTriangle className="w-8 h-8 text-yellow-500 flex-shrink-0 mt-1" />
             <div>

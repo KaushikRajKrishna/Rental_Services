@@ -58,7 +58,7 @@ export function Fleet({ showTitle = true, limit }: FleetProps) {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedBikes?.map((bike) => (
+            {displayedBikes?.map((bike: any) => (
               <div key={bike.id} className="bike-card h-full">
                 <BikeCard bike={bike} />
               </div>
